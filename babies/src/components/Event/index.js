@@ -11,18 +11,18 @@ const Event = ({event, onClick}) => {
 	return (	
         <div> 
             <article>
-                <h1 >{moment(event.dateTime).format("ddd, h:mmA")}</h1>
+                <h1>{"Esto es un evento"}</h1>
+                {/* <h1 >{moment(event.dateTime).format("ddd, h:mmA")}</h1>
                 <span>{event.type}</span>
-                <span>{event.note}</span>
+                <span>{event.note}</span> */}
             </article>
             <button onClick={onClick}>{'Eliminar'}</button>
         </div>
-
   );
 };
 
 export default connect(
-    (state, id) => ({
+    (state, {id, babyId}) => ({
         event: selectors.getEvent(state, id),
     }),
     (dispatch) => ({

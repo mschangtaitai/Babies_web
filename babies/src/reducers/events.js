@@ -31,6 +31,9 @@ const byId = (state = {}, action) => {
                 }
             }
         }
+        case types,types.EVENT_DELETED: {
+            return omit (state, action.payload.id)
+        }
         default:
             return state;
     }
@@ -47,6 +50,6 @@ export const getEvent = (state,id) => state[id];
 // export const getEvent = (state, id) => id < state.lenght ? state[id] : undefined;
 
 
-export const getBabyEvents = (state, babyId) => {
-    state.order.map(id => getEvent(state,id).filter(events.babyId === babyId));
-};
+export const getBabyEvents = (state, babyId) => (
+    state.order.map(id => getEvent(state,id).filter(events.babyId === babyId))
+);

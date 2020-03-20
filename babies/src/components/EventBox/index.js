@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import range from 'lodash/range';
 
 import './styles.css';
+import BabySelector from '../BabySelector';
 import Event from '../Event';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/events';
 
 
-const EventBox = ({ selectedBaby, babyEvents}) => (
+const EventBox = ({ selectedBaby, babyEvents }) => (
     <Fragment className="events">
+        {/* <BabySelector/> */}
         <div className="eventBox">
-            {babyEvents.length === 0 ? (
+            {/* {babyEvents.length === 0 ? (
                 <h1>{"No hay eventos!"}</h1>
             ) : ( babyEvents.map((event,i) => (
                 <Event key={i} selectedBaby={selectedBaby} />
-            )))}
+            )))} */}
         </div>
     </Fragment>
 );

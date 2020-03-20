@@ -1,7 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
-import { Field,reduxForm } from 'redux-form';
+import { withRouter } from 'react-router-dom';
+
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/events';
@@ -15,14 +16,13 @@ const EventForm = ({ onSubmit }) => {
                 <div className="title">
                     <t>Agregar Evento</t>
                 </div>
-                <div className="flex items-center justify-start">
-                    <Field component="select" name="eventType">
-                        <option value="Nap">Nap</option>
-                        <option value="Feeding Bottle">Feeding bottle</option>
-                        <option value="Diaper Change(1)">Diaper Change(1)</option>
-                        <option value="Diaper Change(2)">Diaper Change(2)</option>
-                        <option value="Breast">Breast</option>
-                    </Field>            
+                <div className="input">
+                    <input 
+                        type="text"
+                        placeholder="Tipo"
+                        value={value1}
+                        onChange={e => changeValue1(e.target.value)}
+                    />
                 </div>
                 <div className="input">
                     <input 
@@ -42,4 +42,13 @@ const EventForm = ({ onSubmit }) => {
     );
 };
 
-export default EventForm;
+export default withRouter (
+    connect(
+        undefined,
+        dispatch => ({
+            onSubmit( value1, value2 ) {
+                dispatch(actions.addEvent(value1, value2))
+            }
+        }),
+    )(EventForm)
+);
