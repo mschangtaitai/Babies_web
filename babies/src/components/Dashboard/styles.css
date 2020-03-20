@@ -1,0 +1,9 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    position: absolute;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+};

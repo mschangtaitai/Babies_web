@@ -1,0 +1,9 @@
+.events {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: red;
+    padding: 2rem;
+    margin-left: 2rem;
+    border-radius: 0;
+};
